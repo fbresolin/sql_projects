@@ -8,7 +8,7 @@ CREATE TABLE trigger_test (
 
 DELIMITER $$
 CREATE
-    TRIGGER my_trigger2 BEFORE INSERT
+    TRIGGER my_trigger BEFORE INSERT
     ON employee
     FOR EACH ROW BEGIN
         INSERT INTO trigger_test VALUES(NEW.first_name);
@@ -52,3 +52,9 @@ DELIMITER ;
 INSERT INTO employee
 VALUES(111, 'Kevina', 'Malone', '1968-02-19', 'F', 69000, 106, 3);
 SELECT * FROM trigger_test;
+
+
+-- command DROP TRIGGER removes the define triggers
+DROP TRIGGER my_trigger;
+DROP TRIGGER my_trigger2;
+DROP TRIGGER my_trigger3;
